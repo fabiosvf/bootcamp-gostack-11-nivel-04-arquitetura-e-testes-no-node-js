@@ -38,13 +38,65 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
   - Uma outra informação importante, é que o DDD é utilizado apenas em projetos Back-End
 - Seguem alguns links úteis como conteúdo complementar:
   - [DDD (Domain-Driven Design) // Dicionário do Programador - Código Fonte TV](https://www.youtube.com/watch?v=GE6asEjTFv8)
-  - [Domain-Driven Design - Cnceitos básicos - Bruno Brito](https://www.brunobrito.net.br/domain-driven-design/)
+  - [Domain-Driven Design - Conceitos básicos - Bruno Brito](https://www.brunobrito.net.br/domain-driven-design/)
 - Além do DDD, implementaremos também a metodologia TDD `Test-Driven Design`
   - Essa metodologia é aplicável em todas as frentes, projetos Back-end, Web e Mobile
-  - A ideia principal do `TDD` é justamente antecipar a implementação dos testes para só depois implementar as funcionalidades. Em um primeiro momento, para quem não conhece essa metodologia, a impressão é de que vai dar mais trabalho, mas isso garante um ganho absurdo no decorrer do desenvolvimento do projeto, quando houver a necessidade de realizar constantes alterações e muitas vezes por novos desenvolvedores integrados recentemente na equipe e que não conhece nada das regras de negócio.
+  - A ideia principal do `TDD` é justamente antecipar a implementação dos testes para só depois implementar as funcionalidades. Em um primeiro momento, para quem não conhece essa metodologia, a impressão é de que vai dar mais trabalho, mas isso garante um ganho absurdo no decorrer do desenvolvimento do projeto, quando houver a necessidade de realizar constantes alterações e muitas vezes por novos desenvolvedores integrados recentemente na equipe e que não conhecem nada das regras de negócio.
 - Segue um link útil como conteúdo complementar:
-- [TDD (Test Driven Development) // Dicionário do Programador - Código Fonte TV](https://www.youtube.com/watch?v=bLdEypr2e-8)
+  - [TDD (Test Driven Development) // Dicionário do Programador - Código Fonte TV](https://www.youtube.com/watch?v=bLdEypr2e-8)
 
+#### Separando em módulos
+- Pressione `CTRL + P` e localize o arquivo de configuração `settings.json`
+- Implemente a seguinte configuração:
+```json
+{
+  //...
+
+  "material-icon-theme.folders.associations": {
+    "infra": "app",
+    "entities": "class",
+    "schemas": "class",
+    "typeorm": "database",
+    "repositories": "mappings",
+    "http": "container",
+    "migrations": "tools",
+    "modules": "components",
+    "implementations": "core",
+    "dtos": "typescripts",
+    "fakes": "mock"
+  },
+
+  "material-icon-theme.files.associations": {
+    "ormconfig.json": "database",
+    "tsconfig.json": "tune"
+  },
+
+  //...
+}
+```
+- As associações poderão ser obtidas à partir do seguinte link:
+  - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+  - Essa configuração serve apenas para alterar os ícones da estrutura de pastas e arquivos afim de facilitar a visualização por parte do desenvolvedor
+- A refatoração da estrutura de pastas da aplicação ficou da seguinte forma:
+```
+src
+  config
+  modules
+    appointments
+      entitities
+      repositories
+      services
+    user
+      entities
+      services
+  shared
+    database
+    errors
+    middlewares
+    routes
+```
+- **Atenção**
+  - _Nesta aula, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
 ---
 
 ## Tecnologias utilizadas
