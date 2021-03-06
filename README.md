@@ -50,8 +50,7 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
 - Implemente a seguinte configuração:
 ```json
 {
-  //...
-
+  ...
   "material-icon-theme.folders.associations": {
     "infra": "app",
     "entities": "class",
@@ -70,8 +69,7 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
     "ormconfig.json": "database",
     "tsconfig.json": "tune"
   },
-
-  //...
+  ...
 }
 ```
 - As associações poderão ser obtidas à partir do seguinte link:
@@ -125,6 +123,42 @@ src
 ```
 - **Atenção**
   - _Nesta aula, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
+#### Configurando Imports
+- Abra o arquivo `tsconfig.json` na raiz do projeto e configure os parâmetros `baseUrl` e `paths`
+```json
+{
+  ...
+  "baseUrl": "./src",
+  "paths": {
+    "@modules/*":["modules/*"],
+    "@config/*":["config/*"],
+    "@shared/*":["shared/*"],
+  },
+  ...
+}
+```
+- Após aplicar ajustes no arquivo `tsconfig.json` é necessário reiniciar o `Visual Studio Code`. Para isso pressione `CTRL + SHIFT + P`, digite `Reload Window` e pressione `ENTER` ou apenas pressione `CTRL + R`. (É importante conhecer várias opções de teclas de atalho)
+- Instale a biblioteca `@types/cors` como dependência de desenvolvimento
+```
+$ yarn add @types/cors -D
+```
+- Para que o `ts-node` e o `ts-node-dev` entendam esses novos `paths` criados no arquivo `tsconfig.json` será necessário instalar uma nova biblioteca como dependência de desenvolvimento chamada `tsconfig-paths`
+```
+$ yarn add tsconfig-paths -D
+```
+- Acrescente o parâmetro `-r tsconfig-paths/register` nos comandos da session `scripts` dentro do arquivo `package.json` para que o `ts-node` consiga registrar essa nova biblioteca no momento da execução do serviço
+```
+{
+  ...
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
+    "start": "ts-node src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
+  },
+  ...
+}
+```
 ---
 
 ## Tecnologias utilizadas
@@ -144,6 +178,7 @@ src
 
 #### Dependências de Desenvolvimento
 - [@types/bcryptjs](https://yarnpkg.com/package/@types/bcryptjs)
+- [@types/cors](https://yarnpkg.com/package/@types/cors)
 - [@types/express](https://yarnpkg.com/package/@types/express)
 - [@types/jsonwebtoken](https://yarnpkg.com/package/@types/jsonwebtoken)
 - [@types/multer](https://yarnpkg.com/package/@types/multer)
@@ -157,6 +192,7 @@ src
 - [eslint-plugin-prettier](https://yarnpkg.com/package/eslint-plugin-prettier)
 - [prettier](https://yarnpkg.com/package/prettier)
 - [ts-node-dev](https://yarnpkg.com/package/ts-node-dev)
+- [tsconfig-paths](https://yarnpkg.com/package/tsconfig-paths)
 - [typescript](https://yarnpkg.com/package/typescript)
 
 ---

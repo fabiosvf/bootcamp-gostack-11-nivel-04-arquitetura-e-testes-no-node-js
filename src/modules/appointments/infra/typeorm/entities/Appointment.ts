@@ -8,16 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import User from './User';
-
-/**
- * Tipos de Relacionamentos
- *
- * Um para Um (OneToOne)
- * Um para Muitos (OneToMany)
- * Muitos para Muitos (ManyToMany)
- * Muitos para Um (ManyToOne)
- */
+import User from '@modules/users/infra/typeorm/entities/User';
 
 @Entity('appointments')
 class Appointment {
