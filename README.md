@@ -96,8 +96,35 @@ src
     routes
 ```
 - **Atenção**
-  - _Nestas últimas aulas, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
-
+  - _Nesta aula, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
+#### Camada de Infra
+- A refatoração da estrutura de pastas da aplicação ficou da seguinte forma:
+```
+src
+  config
+  modules
+    appointments
+      infra
+        typeorm
+          entitities
+      repositories
+      services
+    user
+      infra
+        typeorm
+          entities
+      services
+  shared
+    errors
+    infra
+      http
+        middlewares
+        routes
+        server.ts
+      typeorm
+```
+- **Atenção**
+  - _Nesta aula, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
 ---
 
 ## Tecnologias utilizadas
