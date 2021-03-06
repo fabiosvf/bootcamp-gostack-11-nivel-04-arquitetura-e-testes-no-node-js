@@ -96,7 +96,8 @@ src
     routes
 ```
 - **Atenção**
-  - _Nesta aula, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
+  - _Nestas últimas aulas, os ajustes ainda não foram finalizados. As pastas apenas foram refatoradas, mas as referências aos arquivos dessas pastas espalhadas pelo projeto continuam sem alteração_
+
 ---
 
 ## Tecnologias utilizadas
