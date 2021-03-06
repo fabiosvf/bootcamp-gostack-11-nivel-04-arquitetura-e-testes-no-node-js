@@ -174,6 +174,10 @@ $ yarn add tsconfig-paths -D
   },
 }
 ```
+#### Reescrevendo Repositórios
+- **Atenção**
+  - _Nesta aula, os ajustes ainda não foram finalizados. Devido às mudanças na estrutura dos arquivos e também das referências, o projeto ainda não pode ser executado_
+
 ---
 
 ## Tecnologias utilizadas
