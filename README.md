@@ -177,6 +177,18 @@ $ yarn add tsconfig-paths -D
 #### Reescrevendo Repositórios
 - **Atenção**
   - _Nesta aula, os ajustes ainda não foram finalizados. Devido às mudanças na estrutura dos arquivos e também das referências, o projeto ainda não pode ser executado_
+#### Dependency Inversion Principle
+- `Dependency Inversion Principle` representa uma parte do `Design Pattern SOLI[D]`
+- Abra o arquivo `.eslintrc.json` e na session `rules` adicione o parâmetro `no-useless-constructor`
+```json
+{
+  "rules": {
+    "no-useless-constructor": "off",
+  }
+}
+```
+- **Atenção**
+  - _Nesta aula, os ajustes ainda não foram finalizados. Devido às mudanças na estrutura dos arquivos e também das referências, o projeto ainda não pode ser executado_
 
 ---
 
