@@ -50,7 +50,6 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
 - Implemente a seguinte configuração:
 ```json
 {
-  ...
   "material-icon-theme.folders.associations": {
     "infra": "app",
     "entities": "class",
@@ -69,7 +68,6 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
     "ormconfig.json": "database",
     "tsconfig.json": "tune"
   },
-  ...
 }
 ```
 - As associações poderão ser obtidas à partir do seguinte link:
@@ -127,14 +125,12 @@ src
 - Abra o arquivo `tsconfig.json` na raiz do projeto e configure os parâmetros `baseUrl` e `paths`
 ```json
 {
-  ...
   "baseUrl": "./src",
   "paths": {
     "@modules/*":["modules/*"],
     "@config/*":["config/*"],
     "@shared/*":["shared/*"],
   },
-  ...
 }
 ```
 - Após aplicar ajustes no arquivo `tsconfig.json` é necessário reiniciar o `Visual Studio Code`. Para isso pressione `CTRL + SHIFT + P`, digite `Reload Window` e pressione `ENTER` ou apenas pressione `CTRL + R`. (É importante conhecer várias opções de teclas de atalho)
@@ -149,14 +145,33 @@ $ yarn add tsconfig-paths -D
 - Acrescente o parâmetro `-r tsconfig-paths/register` nos comandos da session `scripts` dentro do arquivo `package.json` para que o `ts-node` consiga registrar essa nova biblioteca no momento da execução do serviço
 ```
 {
-  ...
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "start": "ts-node src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
-  ...
+}
+```
+#### Liskov Substitution Principle
+- `Liskov Substitution Principle` representa uma parte do `Design Pattern SO[L]ID`
+- Adicione o parâmetro `"@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }],` no arquivo `.eslintrc.json` na raiz do projeto.
+  - Esse parâmetro serve para exigir e padronizar a nomenclatura das interfaces da aplicação.
+  - A session `rules` deverá ficar da seguinte forma:
+```json
+{
+  "rules": {
+    "no-underscore-dangle": "off",
+    "prettier/prettier": "error",
+    "class-methods-use-this":"off",
+    "camelcase":"off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "_"
+    }],
+    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }],
+    "import/extensions": [ "error", "ignorePackages", { "ts": "never" } ]
+  },
 }
 ```
 ---
