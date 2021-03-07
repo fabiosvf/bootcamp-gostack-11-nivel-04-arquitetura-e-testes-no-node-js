@@ -276,7 +276,59 @@ src
           1. Espera que a página tenha enviado o usuário para o Dashboard
 - **TDD (Test Driven Development)**
   - Basicamente o TDD se baseia em pequenos ciclos de repetições, onde para cada funcionalidade do sistema um teste é criado antes. Este novo teste criado inicialmente falha, já que ainda não temos a implementação da funcionalidade em questão e, em seguida, implementamos a funcionalidade para fazer o teste passar!
-
+#### Configurando Jest
+- Instale a biblioteca `jest` como dependência de desenvolvimento
+```
+$ yarn add jest -D
+```
+- Após a instalação da biblioteca `jest` digite o seguinte comando na raiz do projeto:
+```
+$ yarn jest --init
+```
+- Responda as perguntas com as seguintes informações:
+  - Would you like to use Jest when running "test" script in "package.json"? `yes`
+  - Would you like to use Typescript for the configuration file? `no`
+  - Choose the test environment that will be used for testing `node`
+  - Do you want Jest to add coverage reports? `no`
+  - Which provider should be used to instrument code for coverage? `v8`
+  - Automatically clear mock calls and instances between every test? `yes`
+- Instale a biblioteca `ts-jest` como dependência de desenvolvimento
+```
+$ yarn add ts-jest -D
+```
+- Abra o arquivo `jest.config.ts` e habilite as propriedades abaixo com os seguintes valores:
+```ts
+module.exports = {
+  clearMocks: true,
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  testMatch: ['**/*.spec.ts'],
+};
+```
+- Instale a biblioteca `@types/jest` como dependência de desenvolvimento
+```
+$ yarn add @types/jest -D
+```
+- Abra o arquivo `.eslintrc.json` na raiz do projeto, localize a session `env` e adicione o parâmetro `jest` como `true`
+```json
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  }
+}
+```
+- Para validar a configuração e simular o primeiro teste, crie o seguinte arquivo `src/modules/appointments/services/CreateAppointmentService.spec.ts` e inicie-o com o seguinte conteúdo:
+```ts
+test('sum two numbers', () => {
+  expect(1 + 2).toBe(3);
+});
+```
+- Agora, para executar o teste, abra o terminal e digite o seguinte comando:
+```
+$ yarn test
+```
 ---
 
 ## Tecnologias utilizadas
@@ -299,6 +351,7 @@ src
 - [@types/bcryptjs](https://yarnpkg.com/package/@types/bcryptjs)
 - [@types/cors](https://yarnpkg.com/package/@types/cors)
 - [@types/express](https://yarnpkg.com/package/@types/express)
+- [@types/jest](https://yarnpkg.com/package/@types/jest)
 - [@types/jsonwebtoken](https://yarnpkg.com/package/@types/jsonwebtoken)
 - [@types/multer](https://yarnpkg.com/package/@types/multer)
 - [@typescript-eslint/eslint-plugin](https://yarnpkg.com/package/@typescript-eslint/eslint-plugin)
@@ -309,7 +362,9 @@ src
 - [eslint-import-resolver-typescript](https://yarnpkg.com/package/eslint-import-resolver-typescript)
 - [eslint-plugin-import](https://yarnpkg.com/package/eslint-plugin-import)
 - [eslint-plugin-prettier](https://yarnpkg.com/package/eslint-plugin-prettier)
+- [jest](https://yarnpkg.com/package/jest)
 - [prettier](https://yarnpkg.com/package/prettier)
+- [ts-jest](https://yarnpkg.com/package/ts-jest)
 - [ts-node-dev](https://yarnpkg.com/package/ts-node-dev)
 - [tsconfig-paths](https://yarnpkg.com/package/tsconfig-paths)
 - [typescript](https://yarnpkg.com/package/typescript)
