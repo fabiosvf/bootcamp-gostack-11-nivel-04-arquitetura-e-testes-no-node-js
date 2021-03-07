@@ -206,10 +206,49 @@ $ yarn add tsconfig-paths -D
 ```
 - **Atenção**
   - _Neste ponto já é possível executar a aplicação_
-### Injeção de dependências
+#### Injeção de dependências
 - Para automatizar e facilitar a implementação da injeção de dependência em nossa aplicação, iremos utilizar uma biblioteca chamada `tsyringe`
 ```
 $ yarn add tsyringe
+```
+#### Usando controllers
+- A refatoração da estrutura de pastas e arquivos da aplicação ficou da seguinte forma:
+```
+src
+  config
+  modules
+    appointments
+      dtos
+      infra
+        http
+          controllers
+          routes
+        typeorm
+          entitities
+          repositories
+      repositories
+      services
+    users
+      dtos
+      infra
+        http
+          controllers
+          middlewares
+          routes
+        typeorm
+          entities
+          repositories
+      repositories
+      services
+  shared
+    container
+    errors
+    infra
+      http
+        routes
+        server.ts
+      typeorm
+        migrations
 ```
 ---
 
