@@ -46,7 +46,7 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
   - [TDD (Test Driven Development) // Dicionário do Programador - Código Fonte TV](https://www.youtube.com/watch?v=bLdEypr2e-8)
 
 #### Separando em módulos
-- Pressione `CTRL + P` e localize o arquivo de configuração `settings.json`
+- Pressione `CTRL + SHIFT + P` e localize o arquivo de configuração `settings.json`
 - Implemente a seguinte configuração:
 ```json
 {
@@ -60,7 +60,7 @@ Domínio: Área de conhecimento de um Modulo/Arquivo específico
     "migrations": "tools",
     "modules": "components",
     "implementations": "core",
-    "dtos": "typescripts",
+    "dtos": "typescript",
     "fakes": "mock"
   },
 
@@ -189,7 +189,23 @@ $ yarn add tsconfig-paths -D
 ```
 - **Atenção**
   - _Nesta aula, os ajustes ainda não foram finalizados. Devido às mudanças na estrutura dos arquivos e também das referências, o projeto ainda não pode ser executado_
-
+#### Refatorando módulo de usuários
+- Após a reestruturação das pastas e arquivos da aplicação, será necessário alterar alguns caminhos parametrizados nas propriedades `entities`, `migrations` e `cli` no arquivo `ormconfig.json`
+- **Atenção**
+  - _Neste ponto já é possível executar a aplicação_
+```
+{
+  "entities": [
+    "./src/modules/**/infra/typeorm/entities/*.ts"
+  ],
+  "migrations": [
+    "./src/shared/infra/typeorm/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+  }
+}
+```
 ---
 
 ## Tecnologias utilizadas
