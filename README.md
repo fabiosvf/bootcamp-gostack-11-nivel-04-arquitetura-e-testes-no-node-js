@@ -193,7 +193,7 @@ $ yarn add tsconfig-paths -D
 - Após a reestruturação das pastas e arquivos da aplicação, será necessário alterar alguns caminhos parametrizados nas propriedades `entities`, `migrations` e `cli` no arquivo `ormconfig.json`
 - **Atenção**
   - _Neste ponto já é possível executar a aplicação_
-```
+```json
 {
   "entities": [
     "./src/modules/**/infra/typeorm/entities/*.ts"
@@ -205,6 +205,11 @@ $ yarn add tsconfig-paths -D
     "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
+```
+### Injeção de dependências
+- Para automatizar e facilitar a implementação da injeção de dependência em nossa aplicação, iremos utilizar uma biblioteca chamada `tsyringe`
+```
+$ yarn add tsyringe
 ```
 ---
 
@@ -220,6 +225,7 @@ $ yarn add tsconfig-paths -D
 - [multer](https://yarnpkg.com/package/multer)
 - [pg](https://yarnpkg.com/package/pg)
 - [reflect-metadata](https://yarnpkg.com/package/reflect-metadata)
+- [tsyringe](https://yarnpkg.com/package/tsyringe)
 - [typeorm](https://yarnpkg.com/package/typeorm)
 - [uuidv4](https://yarnpkg.com/package/uuidv4)
 
