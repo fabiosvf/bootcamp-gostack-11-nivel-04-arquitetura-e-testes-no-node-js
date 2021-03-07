@@ -191,8 +191,6 @@ $ yarn add tsconfig-paths -D
   - _Nesta aula, os ajustes ainda não foram finalizados. Devido às mudanças na estrutura dos arquivos e também das referências, o projeto ainda não pode ser executado_
 #### Refatorando módulo de usuários
 - Após a reestruturação das pastas e arquivos da aplicação, será necessário alterar alguns caminhos parametrizados nas propriedades `entities`, `migrations` e `cli` no arquivo `ormconfig.json`
-- **Atenção**
-  - _Neste ponto já é possível executar a aplicação_
 ```json
 {
   "entities": [
@@ -206,6 +204,8 @@ $ yarn add tsconfig-paths -D
   }
 }
 ```
+- **Atenção**
+  - _Neste ponto já é possível executar a aplicação_
 ### Injeção de dependências
 - Para automatizar e facilitar a implementação da injeção de dependência em nossa aplicação, iremos utilizar uma biblioteca chamada `tsyringe`
 ```
