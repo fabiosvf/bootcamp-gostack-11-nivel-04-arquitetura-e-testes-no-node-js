@@ -250,6 +250,32 @@ src
       typeorm
         migrations
 ```
+### Testes e TDD
+#### Testes e TDD
+- Testes Automatizados
+  - Os testes automatizados servem para que a nossa aplicação continue funcionando independente do número de novas fucionalidade e do número de devs no time.
+  - Elas podem ser classificadas de três formas. São elas:
+    - 1. Testes unitários (TDD)
+      - Testam funcionalidades específicas da nossa aplicação (precisam ser funções puras)
+      - Uma função pura não dependem de outras partes da aplicação, são funções isoladas
+      - Testes unitários:
+        - JAMAIS fazem uma chamada à uma API externa
+        - NÃO TEM nenhum efeito colateral, ou seja, não dependem de valores externos para obter o resultado
+    - 2. Testes de Integração
+      - Testam uma funcionalidade completa, passando por várias camadas da aplicação.
+      - Por exemplo:
+        - Route -> Controller -> Serviço -> Repositório -> ...
+    - 3. Testes E2E
+      - Simulam a ação do usuário dentro da nossa aplicação. Muito utilizado em React JS e React Native.
+      - Por exemplo:
+        - 1. Clique no input the email
+        - 2. Preencha email@dominio.com
+        - 3. Clique no input de senha
+        - 4. Preencha 123456
+        - 5. Clique no botão "Logar"
+        - 6. Espera que a página tenha enviado o usuário para o Dashboard
+- TDD (Test Driven Development)
+  - Basicamente o TDD se baseia em pequenos ciclos de repetições, onde para cada funcionalidade do sistema um teste é criado antes. Este novo teste criado inicialmente falha, já que ainda não temos a implementação da funcionalidade em questão e, em seguida, implementamos a funcionalidade para fazer o teste passar!
 ---
 
 ## Tecnologias utilizadas
