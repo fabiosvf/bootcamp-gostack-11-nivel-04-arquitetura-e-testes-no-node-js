@@ -329,6 +329,7 @@ test('sum two numbers', () => {
 ```
 $ yarn test
 ```
+
 ---
 
 ## Tecnologias utilizadas
